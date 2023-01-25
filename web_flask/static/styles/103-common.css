@@ -8,6 +8,12 @@ body {
   font: 14px Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* Block horizontal scrolling */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 /* Container style */
 .container {
   margin: 30px auto;

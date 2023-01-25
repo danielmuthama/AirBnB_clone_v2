@@ -7,9 +7,26 @@
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
-  display: inline-block;
   height: 70px;
   width: 100%;
+}
+
+/*
+ * --- Contain search button float ---
+ */
+
+.filters:before,
+.filters:after {
+  content: "";
+  display: table;
+}
+
+.filters:after {
+  clear: both;
+}
+
+.filters {
+  *zoom: 1;
 }
 
 /* Search button style */
@@ -22,6 +39,7 @@
   font-size: 18px;
   height: 48px;
   margin: 12px 30px;
+  min-width: 150px;
   width: 20%;
 }
 
@@ -54,7 +72,7 @@
 .filters .popover {
   background-color: #fafafa;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 0 0 4px 4px;
   display: none;
   max-height: 300px;
   overflow-y: scroll;
@@ -68,7 +86,7 @@
   display: block;
 }
 
-/* Locations list style */
+/* Locations list padding */
 .filters .locations ul {
   margin: 12px auto 12px 30px;
 }
@@ -81,6 +99,45 @@
 /* Amenities list element margin */
 .filters .amenities li {
   margin: 12px auto 12px 30px;
+}
+
+/*
+ * --- Filters responsive sizing ---
+ */
+
+/* Maintain shape of search bar as screen gets smaller */
+@media only screen and (max-width: 1000px) {
+  .filters {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+/* Swap to vertical layout for small screens */
+@media only screen and (max-width: 720px) {
+  .filters {
+    display: grid;
+    height: 210px;
+  }
+
+  .filters .locations,
+  .filters .amenities {
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .filters .locations:hover .popover,
+  .filters .amenities:hover .popover {
+    margin-left: auto;
+    position: relative;
+    width: 50%;
+    z-index: 1;
+  }
+
+  .filters .amenities:hover {
+    border-top: 1px solid #ddd;
+  }
 }
 
 /*
